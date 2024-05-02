@@ -1,39 +1,51 @@
 /*
-En la clase ArrayTools, complete el método .zip(). El método recibe dos arrays de elmentos de tipo int y devuelve un
-nuevo array del mismo tamaño que el más corto de los arrays pasados como parámetros. Cada elemento de este nuevo array
-será un array de dos elementos de tipo int que almacenará la pareja de elementos que ocupan la misma posición en los
-arrays pasados como parámetros. Ejemplo:
+La siguiente función en Python sirve para contar el número de palabras de un texto que empiezan por vocal (se cosidera
+palabra cualquier secuencia de caracteres que no contenga espacios):
 
-int[] x = {0, 1, 2, 3, 4};
-int[] y = {5, 6, 7, 8, 9, 10};
-int[][] resultado = {{0, 5}, {1, 6}, {2, 7}, {3, 8}, {4, 9}};
- */
+
+def initial_vowels(text):
+   """Devuelve el número de palabras en un texto que empiezan por vocal"""
+
+
+   vowels = "AEIOUÁÉÍÓÚÜaeiouáéíóúü"
+   count = 0
+
+
+   if len(text) > 0:
+       for word in text.split():
+           if word[0] in vowels:
+               count += 1
+
+
+   return count
+Añada a la clase Functions, que se proporciona escrita en Java, una función pública de clase llamada initialVowels que
+realice la misma tarea. El parámetro de entrada de la función será de tipo String y o el valor devuelto por la función
+será de tipo int.
+*/
 import java.util.Arrays;
+import java.util.Scanner;
 
-public class Main{
-    public static void main(String[] args){
-        int[] x = {0, 1, 2, 3, 4};
-        int[] y = {5, 6, 7, 8, 9, 10};
-        int[][] result = zip(x, y);
-        for (int[] row: result){
-            System.out.println(Arrays.toString(row));
-        }
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Introduce text: ");
+        String text = scanner.nextLine();
+        System.out.println(initial_vowels(text));
     }
-    public static int[][] zip(int[] x, int[] y){
-        int[] shortest;
-        int[] longest;
-        if (x.length > y.length){
-            shortest = y;
-            longest = x;
-        } else{
-            shortest = x;
-            longest = y;
+
+
+    public static int initial_vowels(String text){
+        String vowels = "AEIOUaeiouÁÉÍÚÓáéíóú";
+        int counter = 0;
+        text = text.replaceAll("[.,;]", "");
+        String[] textList = text.split("\\s");
+        for (String word : textList){
+            if (vowels.contains(String.valueOf(word.charAt(0)))){
+                counter ++;
+            }
         }
-        int[][] result = new int[shortest.length][2];
-        for (int i=0; i < shortest.length; i++){
-            result[i][0] = shortest[i];
-            result[i][1] = longest[i];
-        }
-        return result;
+        System.out.println(Arrays.toString(textList));
+        return counter;
     }
 }
