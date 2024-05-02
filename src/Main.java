@@ -1,34 +1,21 @@
 /*
-La función divisibles(), escrita en Python, que se muestra a continuación, toma como parámetros una lista de números
-enteros y un número entero distinto de cero. La función debe devolver cuantos de los números contenidos en la lista son
-divisibles por el número proporcionado como segundo parámetro.
+Añada a la clase ArrayTools un método público de clase llamado mayores que acepte como parámetros un array, myArray,
+de elementos de tipo double y un valor, value, de tipo double, y devuelva un resultado de tipo int.
 
-def divisibles(números, divisor):
-    """Devuelve el número de divisores dee num contenidos en lista"""
-
-    contador = 0
-
-    for n in números:
-        if n % divisor == 0:
-            contador += 1
-    return contador
-
-Añada a la clase ArrayTools un método público de clase llamado divisibles que acepte como parámetros un array de
-elementos de tipo int y un valor de tipo int distinto de cero, y devuelva un resultado de tipo int que será la cuenta
-de cuantos de los números contenidos en el array son divisibles por el número proporcionado como segundo parámetro.
+El método mayores devolverá el número de elementos de myArray que son mayores que value.
  */
 
 
 public class Main{
     public static void main(String[] args){
-        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        int value = 5;
-        System.out.println(divisible(array, value));
+        int[] array = {1, 2, 7, 4, 5, 6, 7, 8, 9, 10};
+        int value = 6;
+        System.out.println(mayores(array, value));
     }
-    public static int divisible(int[] array, int value){
+    public static int mayores(int[] array, int value){
         int counter = 0;
-        for (int num : array){
-            if (num % value == 0){
+        for (int num : array) {
+            if (num > value){
                 counter ++;
             }
         }
