@@ -1,26 +1,38 @@
 /*
-Añada a la clase ArrayTools un método público de clase llamado palabrasEnMente que reciba un array de Strings y
-devuelva un nuevo array de Strings. El array devuelto debe tener el mismo tamaño que el pasado como parámetro. El
-array pasado como parámetro contiene una lista de palabras. El array resultante contendrá las mismas palabras, excepto
-aquellas que terminen en "mente", que se modificarán eliminando ese sufijo.
-Por ejemplo:
-Entrada: {"El", "gato", "insolentemente", "saltaba", "ágilmente" }
-Salida: {"El", "gato", "insolente", "saltaba", "´´ágil" }
-*/
-import java.util.Arrays;
+Implemente en Java una clase llamada Counter. Cada objeto de esta clase se inicializará con el valor entero 0, valor
+que se podrá incrementar de uno en uno invocando un método sin parámetros llamado .step(). Además, un método llamado
+.getValue() devolverá el valor del contador en el momento en que se llame, y un método llamado .reset() repondrá el
+valor del contador a cero.
+
+Ejemplo de uso:
 
 public class Main {
     public static void main(String[] args) {
-        String[] array = {"El", "gato", "insolentemente", "saltaba", "ágilmente"};
-        System.out.println(Arrays.toString(array));
-        System.out.println(Arrays.toString(palabrasEnMente(array)));
-    }
-    public static String[] palabrasEnMente(String[] array){
-        for (int i=0; i<array.length; i++){
-            if (array[i].endsWith("mente")) {
-                array[i] = array[i].replaceAll("mente", "");
-            }
+        Counter count = new Counter();
+        System.out.println(count.getValue()); // Muestra 0
+        for (int i = 0; i < 5; i++) {         // Muestra 1 2 3 4 5 en líneas separadas
+            count.step();
+            System.out.println(count.getValue());
         }
-        return array;
+
+        count.reset();
+        System.out.println(count.getValue());  // Muestra 0
     }
 }
+*/
+
+public class Main {
+    public static void main(String[] args) {
+        Counter count = new Counter();
+        System.out.println(count.getValue()); // Muestra 0
+        for (int i = 0; i < 5; i++) {         // Muestra 1 2 3 4 5 en líneas separadas
+            count.step();
+            System.out.println(count.getValue());
+        }
+
+        count.reset();
+        System.out.println(count.getValue());  // Muestra 0
+    }
+
+}
+
