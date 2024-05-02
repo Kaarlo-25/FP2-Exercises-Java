@@ -1,38 +1,20 @@
 /*
-Implemente en Java una clase llamada Counter. Cada objeto de esta clase se inicializará con el valor entero 0, valor
-que se podrá incrementar de uno en uno invocando un método sin parámetros llamado .step(). Además, un método llamado
-.getValue() devolverá el valor del contador en el momento en que se llame, y un método llamado .reset() repondrá el
-valor del contador a cero.
+Un punto en el plano se prepresenta por dos coordenadas: (x, y).
 
-Ejemplo de uso:
+Implemente una clase llamada Point2D para representar puntos en el plano. Esta clase deberá tener:
 
-public class Main {
-    public static void main(String[] args) {
-        Counter count = new Counter();
-        System.out.println(count.getValue()); // Muestra 0
-        for (int i = 0; i < 5; i++) {         // Muestra 1 2 3 4 5 en líneas separadas
-            count.step();
-            System.out.println(count.getValue());
-        }
-
-        count.reset();
-        System.out.println(count.getValue());  // Muestra 0
-    }
-}
+Un constructor que admita dos parámetros de tipo double que representan, en este orden, los valores para inicializar
+las coordenadas x e y del objeto Point2D a crear.
+Métodos getters y setters para los atributos de los objetos de Point2D. Estos métodos deben llamarse: getX, setX, getY
+y setY.
+Nota: las reglas estilo no permiten que los nombres de los miembros de una clase tengan una sola letra (deben seguir el
+patrón ^[a-z][a-z0-9][a-zA-Z0-9]*$); deberá elegir nombres asecuados para representar internamente los valores de x e y.
 */
 
 public class Main {
     public static void main(String[] args) {
-        Counter count = new Counter();
-        System.out.println(count.getValue()); // Muestra 0
-        for (int i = 0; i < 5; i++) {         // Muestra 1 2 3 4 5 en líneas separadas
-            count.step();
-            System.out.println(count.getValue());
-        }
-
-        count.reset();
-        System.out.println(count.getValue());  // Muestra 0
+        Point2D point = new Point2D(2, 3);
+        System.out.println(point.getX());
     }
-
 }
 
