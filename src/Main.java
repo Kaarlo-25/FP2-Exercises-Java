@@ -1,51 +1,31 @@
 /*
-La siguiente función en Python sirve para contar el número de palabras de un texto que empiezan por vocal (se cosidera
-palabra cualquier secuencia de caracteres que no contenga espacios):
-
-
-def initial_vowels(text):
-   """Devuelve el número de palabras en un texto que empiezan por vocal"""
-
-
-   vowels = "AEIOUÁÉÍÓÚÜaeiouáéíóúü"
-   count = 0
-
-
-   if len(text) > 0:
-       for word in text.split():
-           if word[0] in vowels:
-               count += 1
-
-
-   return count
-Añada a la clase Functions, que se proporciona escrita en Java, una función pública de clase llamada initialVowels que
-realice la misma tarea. El parámetro de entrada de la función será de tipo String y o el valor devuelto por la función
-será de tipo int.
+Añada a la clase Functions, que se proporciona escrita en Java, una función pública de clase llamada swap que admita
+como parámetro una string y devuelva una nueva string que contenga las mismas palabras que la pasada por parámetro,
+en orden inverso, separadas por un único espacio y con la incial de cada palabra en mayúscula y el resto en minúscula.
+La string pasada como parámetro solo contiene palabras y espacios.
 */
-import java.util.Arrays;
-import java.util.Scanner;
 
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Introduce text: ");
-        String text = scanner.nextLine();
-        System.out.println(initial_vowels(text));
+        String text = "Hola mundo de Diana";
+        System.out.println(swap(text));
     }
-
-
-    public static int initial_vowels(String text){
-        String vowels = "AEIOUaeiouÁÉÍÚÓáéíóú";
-        int counter = 0;
-        text = text.replaceAll("[.,;]", "");
+    public static String swap(String text){
         String[] textList = text.split("\\s");
-        for (String word : textList){
-            if (vowels.contains(String.valueOf(word.charAt(0)))){
-                counter ++;
-            }
+        String[] result = new String[textList.length];
+        for (int i=0; i<textList.length; i++){
+            String word = textList[i].toLowerCase();
+            String firstLetter = String.valueOf(word.charAt(0));
+            word = firstLetter.toUpperCase() + word.substring(1, word.length());
+            textList[i] = word;
         }
-        System.out.println(Arrays.toString(textList));
-        return counter;
+        int j = 0;
+        for (int i=textList.length-1; i >= 0; i--){
+            result[j] = textList[i];
+            j++;
+        }
+        return Arrays.toString(result);
     }
 }
