@@ -1,32 +1,23 @@
 /*
-Un punto en el plano se representa mediante una pareja de coordenadas (x, y).
-Dados dos puntos en el plano, p1 = (x1, y1) y p2 = (x2, y2):
-    - son iguales si x1 = x2 e y1 = y2.
-    - es menor el que tenga un valor menor para la coordenada x
-    - si las coordenadas x son iguales, es menor el que tenga un valor menor para la coordenada y
+Se tiene implementada en Java una clase llamada SteppedCounter. Esta clase sirve para representar un contador que se
+inicializará con el valor entero 0. Tiene un método sin parámetros llamado .step(), que incrementa el valor del contador
+en un "paso", siendo este un valor entero que se pasa como parámetro en el constructor de la clase. Además, tiene un
+método llamado .getValue(), que devuelve el valor del contador en el momento en que se llama, y un método llamado
+.reset(), que repone el valor del contador a cero. En la clase SteppedCounter el valor del contador se almacena en un
+atributo potected llamado count, y el paso se guarda en otro atributo protected llamado stepValue.
 
-Se tiene una clase llamada Point2D cuyos objetos sirven para representar un punto en el plano. Esta clase tiene dos
-atributos protected, de tipo double, llamados x e y, que almacenan las coordenadas del punto representado. Esta clase
-define el método .equals(Object other) para devolver true si el punto representado por this y el punto representado por
-other son iguales y false si no lo son.
+Se pide desarrollar una nueva clase llamada SteppedCounterCloneable, heredera de SteppedCounter. Esta clase tiene que
+implemetar la interfaz Cloneable para copiar objetos de tipo SteppedCounterCloneable.
 
-Desarrolle una nueva clase heredera de Point2D, llamada Point2DComparable, que implemente la interfaz
-Comparable<Point2DComparable>. El método .compareTo(Point2DComparable other) devuelve 0 si el punto representado por
-this y el punto representado por other son iguales. Si son distintos devuelve devuelve -1 si this es menor o +1 si lo
-es other.
-
-Notas:
-
-Recuerde que la clase debe extender Point2D e implementar Comparable<Point2DComparable>.
-Es necesario implementar un constructor para la clase Point2DComparable que recoja las coordenadas del punto y las pase
-al constructor de las superclase.
+Será necesario implementar un constructor, simplemente para pasar el parámetro del paso a la superclase.
 */
 
 public class Main {
-    public static void main(String[] args) {
-        Point2DComparable p = new Point2DComparable(2, 4);
-        Point2DComparable p1 = new Point2DComparable(2, 3);
-        System.out.println(p.compareTo(p1));
+    public static void main(String[] args) throws CloneNotSupportedException {
+        SteppedCounterCloneable s = new SteppedCounterCloneable(1);
+        System.out.println(s);
+        SteppedCounterCloneable s1 = s.clone();
+        System.out.println(s1);
     }
 }
 
