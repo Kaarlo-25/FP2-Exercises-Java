@@ -1,5 +1,5 @@
 public class Point2D {
-    double x, y;
+    protected double x, y;
 
     public Point2D(double x, double y){
         this.x = x;
